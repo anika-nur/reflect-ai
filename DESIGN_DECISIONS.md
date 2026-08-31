@@ -1,4 +1,4 @@
-# Design Decisions
+# Design Decisions (Every design in the tool is intentional)
 
 This document records the key product, technical, and design decisions made during the development of Reflect, along with the reasoning behind each.
 
@@ -34,25 +34,8 @@ This document records the key product, technical, and design decisions made duri
 **Reasoning**: A single model will occasionally slip — give a suggestion disguised as a question, offer an opinion wrapped in curiosity, or use clinical language. The checker catches these failures before the user sees them. This costs 2x API calls per message but makes the core promise reliable rather than aspirational.
 
 ### Claude Artifact for Prototype
-**Decision**: Build the prototype as a Claude Artifact (React sandbox) rather than a standalone deployed web app.
+Has built the prototype as a Claude Artifact (React sandbox) rather than a standalone deployed web app. The artifact runs the real AI engine live — calling the actual two-model system with every message. Building a standalone site would require backend setup, API key management, hosting, and authentication — all for a demo that judges see as a screen recording. The artifact gives us everything needed for the pitch with zero infrastructure overhead.
 
-**Reasoning**: The artifact runs the real AI engine live — calling the actual two-model system with every message. Building a standalone site would require backend setup, API key management, hosting, and authentication — all for a demo that judges see as a screen recording. The artifact gives us everything needed for the pitch with zero infrastructure overhead.
-
-### No Calendar Feature
-**Decision**: Removed the word-based check-in calendar from the current version.
-
-**Reasoning**: The calendar picked the "most notable word" from each session using a crude heuristic (longest non-filler word). This produced a grid of random-looking words that didn't tell users anything actionable. It was the weakest of the features — decorative rather than functional. Removed to keep the product focused on what works: the questioning, the memory, and the monthly reflection.
-
-## Features Explicitly Rejected
-
-| Feature | Why Rejected |
-|---------|-------------|
-| Mood scoring | Turns reflection into performance ("am I having a good day?"). That's judgment, not understanding. |
-| Journaling mode | Writing without questions lets someone dump without deepening. The question is the product. |
-| Goal-setting | Turns Reflect into a coach → giving advice → breaks core promise. |
-| Gamification | Streak counts and rewards incentivize usage, not understanding. Contradicts anti-dependency design. |
-| Social features | Sharing reflections publicly contradicts the safe, private space Reflect creates. |
-| Therapist matching | Moves into a regulated clinical space. Reflect refers to counselors; it doesn't become a therapy marketplace. |
 
 ## Visual Design Decisions
 
@@ -67,8 +50,3 @@ This document records the key product, technical, and design decisions made duri
 - **Sampaguita loading indicator**: The thinking animation uses five petals arranged like the Philippine national flower
 - **Banig texture**: The monthly reflection card uses a woven mat pattern, referencing traditional Filipino craftsmanship
 - **Typography**: Libre Baskerville (display) + Inter (body) — warm serif for questions, clean sans for UI
-
-### Typography in the Pitch Deck
-- **Cambria** for all headings — serif warmth, readable at large sizes
-- **Calibri** for all body text — clean, professional
-- Two fonts only, consistent across all slides (direct response to mentor feedback about font inconsistency)
