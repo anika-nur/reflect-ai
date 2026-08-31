@@ -4,9 +4,7 @@
 
 **Reflect** is an AI-powered self-reflection tool designed for young Filipinos (ages 18–24). Unlike mental health chatbots that give advice, diagnose, or reassure, Reflect responds with exactly one thoughtful question — built from the user's own words — to help them understand themselves more clearly and reach the real people in their lives.
 
-Built by **Team Clover** for the [Kevin Xu Innovation Challenge 2026](https://www.equitechfutures.com/) / Rhodes Forum.
-
-🔗 **[Interactive Pitch Deck](https://reflect-ai-cyan-five.vercel.app/)** · 🔗 **[Live Demo (Claude Artifact)](https://claude.ai/public/artifacts/f83fb10b-9cba-4561-93f5-18b4c4ce1064)**
+Built by **Team Clover** during the Equitech Futures Institute Fellowship 2026
 
 ---
 
@@ -18,12 +16,9 @@ Built by **Team Clover** for the [Kevin Xu Innovation Challenge 2026](https://ww
 - [Key Features](#key-features)
 - [Demo](#demo)
 - [Tech Stack](#tech-stack)
-- [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
-- [Design Decisions](#design-decisions)
 - [Validation](#validation)
 - [Team](#team)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ---
@@ -121,18 +116,10 @@ When triggered, Reflect:
 ## Demo
 
 ### Live Prototype
-The working prototype is deployed as a [Claude Artifact](https://claude.ai/public/artifacts/f83fb10b-9cba-4561-93f5-18b4c4ce1064). It runs the real two-model AI engine in real time — not scripted responses.
+The working prototype is deployed as a [Claude Artifact](https://claude.ai/public/artifacts/8f0ccf60-fd48-43ff-ab90-c4f25e8f20ee). It runs the real two-model AI engine in real time — not scripted responses.
 
 ### Interactive Pitch Deck
 The full pitch deck is hosted at **[reflect-ai-cyan-five.vercel.app](https://reflect-ai-cyan-five.vercel.app/)** with keyboard/swipe navigation and an embedded demo video.
-
-### Source Code
-The prototype source code is in [`demo/ReflectPrototype.jsx`](demo/ReflectPrototype.jsx) — a single React component that:
-- Implements the two-model engine + checker architecture
-- Handles Taglish/Tagalog/English code-switching
-- Renders the Filipino-inspired visual design (capiz panels, sampaguita loading indicator, banig textures)
-- Includes the safety gate with keyword detection and AI-flagged crisis response
-- Provides history view, monthly reflection, and transcript download
 
 ---
 
@@ -147,22 +134,6 @@ The prototype source code is in [`demo/ReflectPrototype.jsx`](demo/ReflectProtot
 | **Deployment (Pitch Deck)** | Vercel (static HTML) |
 | **Design** | Custom Filipino-inspired visual language |
 
----
-
-## Repository Structure
-
-```
-reflect-ai/
-├── README.md                    # This file
-├── LICENSE                      # MIT License
-├── demo/
-│   └── ReflectPrototype.jsx     # Full prototype source code (React)
-├── pitch-deck/
-│   └── index.html               # Interactive pitch deck (self-contained)
-└── docs/
-    ├── ARCHITECTURE.md           # Technical architecture details
-    └── DESIGN_DECISIONS.md       # Key product and design decisions
-```
 
 ---
 
@@ -177,36 +148,6 @@ The prototype is designed to run as a Claude Artifact (React sandbox environment
 3. The prototype will call the Anthropic API for live AI responses
 
 > **Note:** The prototype requires access to the Anthropic API. In the Claude Artifact environment, this is handled automatically. For standalone deployment, you would need to add API key management and a backend proxy.
-
-### Deploying the Pitch Deck
-
-```bash
-# Clone the repo
-git clone https://github.com/anika-nur/reflect-ai.git
-cd reflect-ai/pitch-deck
-
-# Deploy to Vercel (or any static host)
-vercel deploy
-# Or simply open index.html in a browser
-```
-
----
-
-## Design Decisions
-
-Key product decisions and why they were made:
-
-| Decision | Reasoning |
-|----------|-----------|
-| **Questions only, never answers** | AI that answers reduces critical thinking; questions deepen it. This constraint is enforced by architecture (the checker), not just prompting. |
-| **Two-model architecture** | A single model will occasionally slip into advice. The checker catches these failures before the user sees them. |
-| **Filipino cultural grounding** | Taglish support, understanding of *hiya*, *kapwa*, and local humor — validated by Filipino mental health practitioners, not just translated. |
-| **Anti-dependency by design** | Questions actively turn users toward real people in their lives. Success = user reaches out to a friend, not more time on app. |
-| **No mood scoring** | Turns reflection into performance ("am I having a good day?"). That's judgment, not understanding. |
-| **No journaling mode** | Writing without questions lets someone dump without deepening. The question is the product. |
-| **No goal-setting** | Turns Reflect into a coach → means giving advice → breaks the core promise. |
-| **Wellness tool, not medical device** | Avoids medical-device regulations (which killed Woebot's consumer app) while maintaining safety through crisis referral. |
-
 ---
 
 ## Validation
@@ -245,12 +186,6 @@ Key product decisions and why they were made:
 
 ---
 
-## License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
 ## Acknowledgments
 
 - **Hannah Be Sibugan** — Mental Health Social Worker, Municipality of San Jose, Philippines
@@ -264,6 +199,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ## Status
 
-This is a **working prototype** built for the Kevin Xu Innovation Challenge 2026. It demonstrates the core two-model architecture, safety layer, and Filipino cultural grounding. It is not yet a production product — persistent backend, authentication, real cross-day memory, and clinical review are on the roadmap.
-
-> *"Every other tool tells young people what they feel. Reflect helps them find out for themselves."*
+This is a **working prototype**. It demonstrates the core two-model architecture, safety layer, and Filipino cultural grounding. It is not yet a production product — persistent backend, authentication, real cross-day memory, and clinical review are on the roadmap.
